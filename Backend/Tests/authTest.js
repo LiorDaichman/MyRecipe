@@ -49,6 +49,21 @@ const runTests = async () => {
 
   if (token) {
     console.log('Successfully logged in, token:', token);
+    await testProfile(token); // Test the protected profile route
+  }
+};
+
+// Function to test profile access
+const testProfile = async (token) => {
+  try {
+    const response = await axios.get(`${baseURL}/profile`, {
+      headers: {
+        Authorization: `Bearer ${token}` // Include the token in the request header
+      }
+    });
+    console.log('Profile response:', response.data);
+  } catch (error) {
+    console.error('Profile access error:', error.response ? error.response.data : error.message);
   }
 };
 

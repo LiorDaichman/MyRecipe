@@ -1,6 +1,9 @@
 PS C:\Users\liord\Documents\MyRecipe\Backend\Tests> node authTest.js
-Register response: { msg: 'User registered successfully' }
+Register error: { msg: 'User already exists' }
+Status: 400
+Data: { msg: 'User already exists' }
 Login response: {
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjEzNjQsImV4cCI6MTczMDM2NDk2NH0.r7YYoFTOzSQMKEsiEFvEffc7ncUIauL0SggaAMnskK4'
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjIwNTgsImV4cCI6MTczMDM2NTY1OH0.4sbiG2UfMevsOkIjLU8p77dwK2GwnAQDtd45SpyMflQ'
 }
-Successfully logged in, token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjEzNjQsImV4cCI6MTczMDM2NDk2NH0.r7YYoFTOzSQMKEsiEFvEffc7ncUIauL0SggaAMnskK4
+Successfully logged in, token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjIwNTgsImV4cCI6MTczMDM2NTY1OH0.4sbiG2UfMevsOkIjLU8p77dwK2GwnAQDtd45SpyMflQ
+Profile response: { username: 'testuser', email: 'testuser@example.com' }

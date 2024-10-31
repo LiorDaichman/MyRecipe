@@ -3,9 +3,10 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../Models/User'); // Ensure this points to your User model file
+const authMiddleware = require('../Middlewares/authMiddleware')
 require('dotenv').config();
 
-const JWT_SECRET = process.env.JWT_SECRET || 'default_jwt_secret'; // Define your secret key
+const JWT_SECRET = process.env.JWT_SECRET || 'default_jwt_secret'; 
 
 // Register route
 router.post('/register', async (req, res) => {
@@ -49,6 +50,19 @@ router.post('/login', async (req, res) => {
     res.json({ token });
   } catch (error) {
     console.error('Error in login route:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.get('/profile', authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId); // req.user is set by authMiddleware
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+    res.json({ username: user.username, email: user.email });
+  } catch (error) {
+    console.error('Error fetching user profile:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
