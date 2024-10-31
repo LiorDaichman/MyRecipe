@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require('./db'); // Import the MongoDB connection file
+const authRoutes = require('./Routes/authRoutes');
+
 
 const app = express();
 
@@ -9,7 +11,9 @@ connectDB();
 // Middleware for JSON parsing
 app.use(express.json());
 
-// Example route to check if the server is running
+// Use auth routes
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req, res) => res.send('API is running'));
 
 const PORT = process.env.PORT || 5000;
