@@ -3,7 +3,11 @@ Register error: { msg: 'User already exists' }
 Status: 400
 Data: { msg: 'User already exists' }
 Login response: {
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjIwNTgsImV4cCI6MTczMDM2NTY1OH0.4sbiG2UfMevsOkIjLU8p77dwK2GwnAQDtd45SpyMflQ'
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjI0NTcsImV4cCI6MTczMDM2NjA1N30.pJVHFiBgjXIodXT3ohziwTGw7R6orIjHOA_jPhkph78'
 }
-Successfully logged in, token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjIwNTgsImV4cCI6MTczMDM2NTY1OH0.4sbiG2UfMevsOkIjLU8p77dwK2GwnAQDtd45SpyMflQ
+Successfully logged in, token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzIzMzgxM2IwNDU3ZDNjYTQyNmQ1OTAiLCJpYXQiOjE3MzAzNjI0NTcsImV4cCI6MTczMDM2NjA1N30.pJVHFiBgjXIodXT3ohziwTGw7R6orIjHOA_jPhkph78
 Profile response: { username: 'testuser', email: 'testuser@example.com' }
+Profile update response: {
+  msg: 'Profile updated successfully',
+  user: { username: 'updatedUser', email: 'updatedUser@example.com' }
+}

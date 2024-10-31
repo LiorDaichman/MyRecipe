@@ -42,17 +42,6 @@ const testLogin = async () => {
   }
 };
 
-// Run the test functions
-const runTests = async () => {
-  await testRegister();
-  const token = await testLogin();
-
-  if (token) {
-    console.log('Successfully logged in, token:', token);
-    await testProfile(token); // Test the protected profile route
-  }
-};
-
 // Function to test profile access
 const testProfile = async (token) => {
   try {
@@ -64,6 +53,35 @@ const testProfile = async (token) => {
     console.log('Profile response:', response.data);
   } catch (error) {
     console.error('Profile access error:', error.response ? error.response.data : error.message);
+  }
+};
+
+// Function to test profile update
+const testProfileUpdate = async (token) => {
+  try {
+    const response = await axios.put(`${baseURL}/profile`, {
+      username: 'updatedUser', // New username
+      email: 'updatedUser@example.com' // New email
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    console.log('Profile update response:', response.data);
+  } catch (error) {
+    console.error('Profile update error:', error.response ? error.response.data : error.message);
+  }
+};
+
+// Run the test functions
+const runTests = async () => {
+  await testRegister();
+  const token = await testLogin();
+
+  if (token) {
+    console.log('Successfully logged in, token:', token);
+    await testProfile(token); // Test profile access
+    await testProfileUpdate(token); // Test profile update
   }
 };
 

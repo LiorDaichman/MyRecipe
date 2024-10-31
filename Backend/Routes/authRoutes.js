@@ -67,4 +67,26 @@ router.get('/profile', authMiddleware, async (req, res) => {
   }
 });
 
+// Update user profile
+router.put('/profile', authMiddleware, async (req, res) => {
+  const { username, email } = req.body;
+
+  try {
+    const user = await User.findById(req.user.userId); // Get user ID from the token
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
+    // Update user fields
+    user.username = username || user.username;
+    user.email = email || user.email;
+    await user.save();
+
+    res.json({ msg: 'Profile updated successfully', user: { username: user.username, email: user.email } });
+  } catch (error) {
+    console.error('Error updating user profile:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 module.exports = router;
