@@ -1,0 +1,14 @@
+PS C:\Users\liord\Documents\MyRecipe\Backend\Tests> node recipeTest.js
+Submit recipe response: {
+  msg: 'Recipe submitted successfully',
+  recipe: {
+    title: 'Test Recipe',
+    ingredients: [ 'Ingredient 1', 'Ingredient 2' ],
+    instructions: 'Test instructions',
+    ratings: [],
+    averageRating: 0,
+    _id: '672360b0d390f74e11b7a77d',
+    __v: 0
+  }
+}
+Recipe submission successful!

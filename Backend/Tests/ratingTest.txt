@@ -1,0 +1,3 @@
+PS C:\Users\liord\Documents\MyRecipe\Backend\Tests> node ratingTest.js
+Rate recipe response: { msg: 'Rating submitted successfully', averageRating: 4 }
+Average rating response: { averageRating: 4 }
